@@ -27,10 +27,6 @@ npm install @wangeditor/editor wangeditor5-for-vue2
 
   支持 `v-bind:json` 和 `v-bind:html` 两种形式的双向绑定，分别对应 `json string` 和 `html string` 两种形式的数据
 
-- **表单验证**
-
-  目前已支持 `element-plus`、`ant-design-vue@^3` 和 `naive-ui` 的表单验证，还可以自定义表单验证的执行逻辑
-
 - **初始内容**
 
   编辑器创建时的默认内容配置项支持 `json array`、`json string` 和 `html string` 三种格式的数据
