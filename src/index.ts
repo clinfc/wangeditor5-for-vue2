@@ -1,0 +1,5 @@
+export type { WeEditableOption, WeToolbarOption } from './core/types'
+export { useWangEditor } from './core/core'
+export { WeToolbar } from './core/toolbar'
+export { WeEditable } from './core/editable'
+export { WeEditor } from './core/editor'

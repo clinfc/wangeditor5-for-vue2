@@ -1,0 +1,7 @@
+[
+  {
+    "target": "example/element_ui",
+    "node_modules": true,
+    "project_name": true
+  }
+]

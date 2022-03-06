@@ -1,0 +1,4 @@
+{
+  "watch": ["dist/*"],
+  "ignore": ["docs/*", "example/*", "scr/*"]
+}
