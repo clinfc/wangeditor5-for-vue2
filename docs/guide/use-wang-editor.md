@@ -6,7 +6,7 @@
 
 ## useWangEditor 的类型
 
-```ts
+```js
 /**
  * vue hook，用于实现编辑器配置项的动态绑定
  * @param {Object} editableOption 编辑器主体部分的配置
@@ -29,7 +29,7 @@ declare function useWangEditor(
 
 ## WeEditableOption
 
-```ts
+```js
 /**
  * 编辑器配置项
  */
@@ -67,35 +67,44 @@ interface WeEditableOption {
 
 > `defaultContent` 和 `defaultHtml` 不建议同时使用。如果需要切换使用，可以一个赋值为 null 另一个赋值真正的值。如：你需要从 `defaultContent` 切换到 `defaultHtml`，可以先赋值 `WeEditableOption.defaultContent = null`，然后再赋值 `WeEditableOption.defaultHtml = '<h1>标题一</h1><p>段落</p>'` 即可。
 
-```ts
-const { editable, toolbar, reloadEditor } = useWangEditor()
+```js
+import { useWangEditor } from 'wangeditor5-for-vue2'
+export default {
+  data() {
+    return {
+      we: null,
+    }
+  },
+  created() {
+    this.we = useWangEditor()
+  },
+  mounted() {
+    setTimeout(() => {
+      // 当你进行了 v-bind:json.sync/v-bind:html.sync 绑定时，
+      // 如果你想在编辑器重载后将 defaultContent 显示为编辑器的默认内容，
+      // 那么你需要设置 extendCache 为 false，这会导致编辑器内容的丢失，
+      // 可以合理搭配 reloadbefore 事件进行处理
+      this.we.editable.extendCache = false
 
-onMounted(() => {
-  setTimeout(() => {
-    // 当你进行了 v-bind:json.sync/v-bind:html.sync 绑定时，
-    // 如果你想在编辑器重载后将 defaultContent 显示为编辑器的默认内容，
-    // 那么你需要设置 extendCache 为 false，这会导致编辑器内容的丢失，
-    // 可以合理搭配 reloadbefore 事件进行处理
-    editable.extendCache = false
+      // 然后再修改配置
+      this.we.editable.defaultContent = [{ type: 'header1', children: [{ text: '标题一' }] }]
 
-    // 然后再修改配置
-    editable.defaultContent = [{ type: 'header1', children: [{ text: '标题一' }] }]
+      // 同时还支持字符串形式的 JSON
+      this.we.editable.defaultContent = '[{"type":"header1","children":[{"text":"标题一"}]}]'
 
-    // 同时还支持字符串形式的 JSON
-    editable.defaultContent = '[{"type":"header1","children":[{"text":"标题一"}]}]'
+      // or：配置 HTML 字符串
+      this.we.editable.defaultHtml = '<h1>标题一</h1><p>段落</p>'
 
-    // or：配置 HTML 字符串
-    editable.defaultHtml = '<h1>标题一</h1><p>段落</p>'
-
-    // 最后，你还需要强制重载编辑器
-    reloadEditor()
-  }, 5000)
-})
+      // 最后，你还需要强制重载编辑器
+      this.we.reloadEditor()
+    }, 5000)
+  },
+}
 ```
 
 ## WeToolbarOption
 
-```ts
+```js
 /**
  * 菜单栏的配置项
  */
@@ -109,15 +118,26 @@ interface WeToolbarOption {
 
 修改 `editable` 或 `toolbar` 的属性即可。
 
-```ts
-const { editable, toolbar } = useWangEditor()
+```js
+import { useWangEditor } from 'wangeditor5-for-vue2'
+export default {
+  data() {
+    return {
+      we: null,
+    }
+  },
+  created() {
+    this.we = useWangEditor()
+  },
+  mounted() {
+    this.we.editable.config.placeholder = '新的 placeholder'
 
-editable.config.placeholder = '新的 placeholder'
+    // 切换为只读模式
+    this.we.editable.config.readOnly = true
 
-// 切换为只读模式
-editable.config.readOnly = true
-
-toolbar.mode = 'simple'
+    this.we.toolbar.mode = 'simple'
+  },
+}
 ```
 
 ## API
@@ -126,7 +146,7 @@ toolbar.mode = 'simple'
 
 不仅会清除编辑器内容，还会同步 `v-bind:json.sync`/`v-bind:html.sync` 数据
 
-```ts
+```js
 const { clearContent } = useWangEditor()
 
 clearContent()
@@ -135,18 +155,27 @@ clearContent()
 受 `@wangeditor/editor` 内部限制，`WeEditableOption.config.readOnly` 为 `true` 时，执行 `clearContent()` 是无法清除内容的。
 如果你仍希望进行编辑器内容清除，可以考虑使用 `reloadEditor()` 搭配 `WeEditableOption.defaultContent` 进行实现。
 
-```ts
-const { editable, reloadEditor } = useWangEditor({ config: { readOnly: true } })
+```js
+import { useWangEditor } from 'wangeditor5-for-vue2'
+export default {
+  data() {
+    return {
+      we: null,
+    }
+  },
+  created() {
+    this.we = useWangEditor()
+  },
+  methods: {
+    customClearContent() {
+      // 如果使用了 v-bind 进行双向绑定，一定要注意此配置项一定要设置为 false
+      this.we.editable.extendCache = false
 
-function customClearContent() {
-  // 如果使用了 v-bind 进行双向绑定，一定要注意此配置项一定要设置为 false
-  editable.extendCache = false
-
-  editable.defaultContent = null
-  reloadEditor()
+      this.we.editable.defaultContent = null
+      this.we.reloadEditor()
+    },
+  },
 }
-
-customClearContent()
 ```
 
 > **为什么不通过修改 v-bind:json.sync/v-bind:html.sync 来清空数据**：
@@ -157,7 +186,7 @@ customClearContent()
 
 获取菜单栏实例
 
-```ts
+```js
 const { getToolbar } = useWangEditor()
 
 const toolbarInstance: Toolbar | undefined = getToolbar()
@@ -172,7 +201,7 @@ if (toolbarInstance) {
 
 获取编辑器实例
 
-```ts
+```js
 const { getEditable } = useWangEditor()
 
 const editableInstance: IDomEditor | undefined = getEditable()
@@ -204,7 +233,7 @@ if (editableInstance) {
 
 > `WeEditableOption` 的其它配置项虽不会触发重载，但是支持动态配置
 
-```ts
+```js
 const { reloadEditor } = useWangEditor()
 
 // 强制重载编辑器

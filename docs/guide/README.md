@@ -42,7 +42,7 @@ export default {
 
 或
 
-```ts
+```js
 import { WeEditor } from 'wangeditor5-for-vue2'
 import '@wangeditor/editor/dist/css/style.css'
 
