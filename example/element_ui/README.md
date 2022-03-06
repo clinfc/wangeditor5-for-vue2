@@ -1,6 +1,6 @@
-# element_ui + wangeditor5-for-vue2
+# element-ui + wangeditor5-for-vue2
 
-`wangeditor5-for-vue2` 的 `element_ui` 使用示例
+`wangeditor5-for-vue2` 的 `element-ui` 使用示例
 
 ## 运行
 
