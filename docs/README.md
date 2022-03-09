@@ -3,10 +3,8 @@ home: true
 lang: zh-CN
 heroText: wangeditor5-for-vue2
 tagline: 在 Vue2 中使用 wangEditor v5
-actions:
-  - text: 快速开始
-    link: /guide/README.md
-    type: success
+actionText: 快速开始
+actionLink: /guide/README
 features:
   - title: 动态配置
     details: 符合 Vue 使用习惯，数据驱动，通过修改配置即可更新编辑器（编辑器创建后修改配置项仍生效）

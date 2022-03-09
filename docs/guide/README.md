@@ -15,7 +15,7 @@ npm install @wangeditor/editor wangeditor5-for-vue2
 ### 全局注册
 
 ```js
-import { createApp } from 'vue'
+import Vue from 'vue'
 import { WeToolbar, WeEditable, WeEditor } from 'wangeditor5-for-vue2'
 import '@wangeditor/editor/dist/css/style.css'
 
@@ -51,20 +51,15 @@ export default {
 }
 ```
 
-## 完全示例
+## 示例
 
 ### WeToolbar + WeEditable
 
-```html
+```vue
 <template>
   <div>
-    <we-toolbar :option="we.toolbar" :reloadbefore="toolbarReloadbefore" />
-    <we-editable
-      :option="we.editable"
-      :reloadbefore="editableReloadbefore"
-      :json.sync="data.json"
-      :html.sync="data.html"
-    />
+    <we-toolbar :option="toolbar" />
+    <we-editable :option="editable" :json.sync="data.json" :html.sync="data.html" />
   </div>
 </template>
 
@@ -72,37 +67,29 @@ export default {
   import { useWangEditor } from 'wangeditor5-for-vue2'
   export default {
     data() {
-      return {
-        we: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
+      const { toolbar, editable, getToolbar, getEditable, clearContent, reloadEditor } = useWangEditor({
+        config: {
+          placeholder: 'WeToolbar + WeEditable 示例',
+          onCreated: (inst) => {
+            console.log(inst)
+            // 使用了箭头函数，因此 this 指向当前组件实例
+            console.log(this.editable.config.placeholder)
+          },
         },
+      })
+
+      return {
+        toolbar,
+        editable,
+        getToolbar,
+        getEditable,
+        clearContent,
+        reloadEditor,
         data: {
           json: '',
           html: '',
         },
       }
-    },
-    created() {
-      this.we = useWangEditor({
-        config: {
-          placeholder: 'WeToolbar + WeEditable 示例',
-        },
-      })
-    },
-    methods: {
-      toolbarReloadbefore(inst) {
-        console.log(inst)
-        alert(`toolbar 即将重载：${new Date().toLocaleString()}`)
-      },
-      editableReloadbefore(inst) {
-        console.log(inst)
-        alert(`editable 即将重载：${new Date().toLocaleString()}`)
-      },
     },
   }
 </script>
@@ -110,14 +97,9 @@ export default {
 
 ### WeEditor
 
-```html
+```vue
 <template>
-  <we-editor
-    :toolbar-option="we.toolbar"
-    :editable-option="we.editable"
-    :json.sync="data.json"
-    :html.sync="data.html"
-  />
+  <we-editor :toolbar-option="toolbar" :editable-option="editable" :json.sync="data.json" :html.sync="data.html" />
 </template>
 
 <script>
@@ -125,42 +107,22 @@ export default {
   export default {
     data() {
       return {
-        we: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
-        },
         data: {
           json: '',
           html: '',
         },
+        ...useWangEditor({
+          config: {
+            placeholder: 'WeEditor 示例',
+            onCreated: (inst) => {
+              console.log(inst)
+              // 使用了箭头函数，因此 this 指向当前组件实例
+              console.log(this.editable.config.placeholder)
+            },
+          },
+        }),
       }
-    },
-    created() {
-      this.we = useWangEditor({
-        config: {
-          placeholder: 'WeEditor 示例',
-        },
-      })
     },
   }
 </script>
 ```
-
-#### props
-
-| prop                   | 描述                                               | 类型                           |
-| :--------------------- | :------------------------------------------------- | :----------------------------- |
-| `toolbarOption`        | 菜单栏配置项                                       | `Required<WeToolbarOption>`    |
-| `toolbarClass`         | 菜单栏的 `class attribute`                         | `String`                       |
-| `toolbarStyle`         | 菜单栏的 `style attribute`                         | `String`                       |
-| `toolbarReloadbefore`  | 菜单栏重载前的回调函数                             | `(toolbar: Toolbar) => void`   |
-| `editableOption`       | 编辑区配置项                                       | `Required<WeEditableOption>`   |
-| `editableClass`        | 编辑区的 `class attribute`                         | `String`                       |
-| `editableStyle`        | 编辑区的 `style attribute`                         | `String`                       |
-| `editableReloadbefore` | 编辑区重载前的回到函数                             | `(editor: IDomEditor) => void` |
-| `json`                 | 编辑器内容，支持 `.sync` 修饰符                    | `JSON String`                  |
-| `html`                 | 编辑器内容，支持 `.sync` 修饰符，优先级低于 `json` | `HTML String`                  |

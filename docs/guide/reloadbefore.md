@@ -7,8 +7,8 @@
 ```html
 <template>
   <div>
-    <we-toolbar :reloadbefore="toolbarReloadbefore" :option="we.toolbar" />
-    <we-editable :reloadbefore="editableReloadbefore" :option="we.editable" />
+    <we-toolbar :reloadbefore="toolbarReloadbefore" :option="toolbar" />
+    <we-editable :reloadbefore="editableReloadbefore" :option="editable" />
   </div>
 </template>
 
@@ -17,22 +17,12 @@
   export default {
     data() {
       return {
-        we: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
-        },
+        ...useWangEditor({
+          config: {
+            placeholder: 'WeToolbar + WeEditable 示例',
+          },
+        }),
       }
-    },
-    created() {
-      this.we1 = useWangEditor({
-        config: {
-          placeholder: 'WeToolbar + WeEditable 示例',
-        },
-      })
     },
     methods: {
       toolbarReloadbefore(inst) {
@@ -55,8 +45,8 @@
   <we-editor
     :toolbar-reloadbefore="toolbarReloadbefore"
     :editable-reloadbefore="editableReloadbefore"
-    :toolbar-option="we.toolbar"
-    :editable-option="we.editable"
+    :toolbar-option="toolbar"
+    :editable-option="editable"
   />
 </template>
 
@@ -65,22 +55,12 @@
   export default {
     data() {
       return {
-        we: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
-        },
+        ...useWangEditor({
+          config: {
+            placeholder: 'WeEditor 示例',
+          },
+        }),
       }
-    },
-    created() {
-      this.we = useWangEditor({
-        config: {
-          placeholder: 'WeEditor 示例',
-        },
-      })
     },
     methods: {
       toolbarReloadbefore(inst) {

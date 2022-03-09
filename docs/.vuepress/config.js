@@ -25,6 +25,7 @@ module.exports = {
               { text: 'reloadEditor', link: '/guide/use-wang-editor.md#reloadeditor' },
               { text: 'WeEditableOption', link: '/guide/use-wang-editor.md#weeditableoption' },
               { text: 'WeToolbarOption', link: '/guide/use-wang-editor.md#wetoolbaroption' },
+              { text: '会触发重载的配置项', link: '/guide/use-wang-editor.md#会触发重载的配置项' },
             ],
           },
           {
@@ -47,7 +48,7 @@ module.exports = {
           { text: 'Github', link: 'https://github.com/clinfc/wangeditor5-for-vue2' },
         ],
         sidebar: {
-          '/guide/': ['', 'use-wang-editor', 'reloadbefore', 'v-model', 'relevance'],
+          '/guide/': ['', 'props', 'use-wang-editor', 'reloadbefore', 'v-model', 'relevance'],
         },
       },
     },

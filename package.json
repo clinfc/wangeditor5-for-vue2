@@ -1,7 +1,7 @@
 {
   "name": "wangeditor5-for-vue2",
   "version": "0.0.1",
-  "description": "",
+  "description": "支持动态配置的 wangEditor5 for vue2 组件",
   "author": "翠林 <clinfc@qq.com>",
   "license": "MIT",
   "homepage": "https://clinfc.github.io/wangeditor5-for-vue2/",
@@ -10,10 +10,8 @@
     "url": "https://github.com/clinfc/wangeditor5-for-vue2"
   },
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "src",
     "dist"
   ],
   "keywords": [
@@ -21,7 +19,9 @@
     "@wangeditor/editor",
     "vue",
     "vue2",
-    "富文本编辑器"
+    "富文本编辑器",
+    "editor",
+    "rich text"
   ],
   "scripts": {
     "dev": "concurrently npm:dev:*",
@@ -29,7 +29,6 @@
     "dev:copy": "nodemon node copy.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "example": "cd example && npm run serve",
     "build": "tsc"
   },
   "dependencies": {

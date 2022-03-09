@@ -31,36 +31,17 @@
       return {
         dialogVisible: false,
         drawerVisible: false,
-        dialog: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
-        },
-        drawer: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
-        },
+        dialog: useWangEditor({
+          config: {
+            placeholder: 'Use In Dialog',
+          },
+        }),
+        drawer: useWangEditor({
+          config: {
+            placeholder: 'Use In Drawer',
+          },
+        }),
       }
-    },
-    created() {
-      this.dialog = useWangEditor({
-        config: {
-          placeholder: 'Use In Dialog',
-        },
-      })
-
-      this.drawer = useWangEditor({
-        config: {
-          placeholder: 'Use In Drawer',
-        },
-      })
     },
   }
 </script>

@@ -2,15 +2,15 @@
   <div>
     <el-form ref="ruleForm" label-position="top" :model="data" :rules="rules">
       <el-form-item label="extendCache">
-        <el-switch v-model="we.editable.extendCache" active-text="true" inactive-text="false" />
+        <el-switch v-model="editable.extendCache" active-text="true" inactive-text="false" />
       </el-form-item>
       <el-form-item label="defaultContent">
         <el-select v-model="data.article" placeholder="请选择">
           <el-option v-for="item in article" :key="item.label" :label="item.label" :value="item.value" />
         </el-select>
-        <span v-show="we.editable.extendCache">
+        <span v-show="editable.extendCache">
           extendCache 为 true 时，切换 defaultContent 前需要先
-          <el-button type="text" @click="we.clearContent">清理缓存</el-button>
+          <el-button type="text" @click="clearContent">清理缓存</el-button>
         </span>
       </el-form-item>
       <el-form-item label="文章内容" prop="json">
@@ -18,8 +18,8 @@
           class="editor"
           toolbar-class="editor-toolbar"
           editable-class="editor-editable"
-          :toolbar-option="we.toolbar"
-          :editable-option="we.editable"
+          :toolbar-option="toolbar"
+          :editable-option="editable"
           :json.sync="data.json"
           :html.sync="data.html"
         />
@@ -45,15 +45,18 @@
   export default {
     components: { UPrism },
     data() {
-      return {
-        we: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
+      const { toolbar, editable, clearContent, reloadEditor } = useWangEditor({
+        config: {
+          placeholder: 'WeEditableOption.defaultContent',
         },
+        extendCache: false,
+      })
+
+      return {
+        toolbar,
+        editable,
+        clearContent,
+        reloadEditor,
         article: getArticle(),
         data: {
           article: '',
@@ -67,18 +70,10 @@
     watch: {
       'data.article': function (nv) {
         if (typeof nv === 'number') {
-          this.we.editable.defaultContent = getArticleJson(nv)
-          this.we.reloadEditor()
+          this.editable.defaultContent = getArticleJson(nv)
+          this.reloadEditor()
         }
       },
-    },
-    created() {
-      this.we = useWangEditor({
-        config: {
-          placeholder: 'WeEditableOption.defaultContent',
-        },
-        extendCache: false,
-      })
     },
   }
 </script>

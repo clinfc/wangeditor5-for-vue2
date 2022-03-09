@@ -72,11 +72,8 @@ import { useWangEditor } from 'wangeditor5-for-vue2'
 export default {
   data() {
     return {
-      we: null,
+      ...useWangEditor(),
     }
-  },
-  created() {
-    this.we = useWangEditor()
   },
   mounted() {
     setTimeout(() => {
@@ -84,19 +81,19 @@ export default {
       // 如果你想在编辑器重载后将 defaultContent 显示为编辑器的默认内容，
       // 那么你需要设置 extendCache 为 false，这会导致编辑器内容的丢失，
       // 可以合理搭配 reloadbefore 事件进行处理
-      this.we.editable.extendCache = false
+      this.editable.extendCache = false
 
       // 然后再修改配置
-      this.we.editable.defaultContent = [{ type: 'header1', children: [{ text: '标题一' }] }]
+      this.editable.defaultContent = [{ type: 'header1', children: [{ text: '标题一' }] }]
 
       // 同时还支持字符串形式的 JSON
-      this.we.editable.defaultContent = '[{"type":"header1","children":[{"text":"标题一"}]}]'
+      this.editable.defaultContent = '[{"type":"header1","children":[{"text":"标题一"}]}]'
 
       // or：配置 HTML 字符串
-      this.we.editable.defaultHtml = '<h1>标题一</h1><p>段落</p>'
+      this.editable.defaultHtml = '<h1>标题一</h1><p>段落</p>'
 
       // 最后，你还需要强制重载编辑器
-      this.we.reloadEditor()
+      this.reloadEditor()
     }, 5000)
   },
 }
@@ -123,19 +120,16 @@ import { useWangEditor } from 'wangeditor5-for-vue2'
 export default {
   data() {
     return {
-      we: null,
+      ...useWangEditor(),
     }
   },
-  created() {
-    this.we = useWangEditor()
-  },
   mounted() {
-    this.we.editable.config.placeholder = '新的 placeholder'
+    this.editable.config.placeholder = '新的 placeholder'
 
     // 切换为只读模式
-    this.we.editable.config.readOnly = true
+    this.editable.config.readOnly = true
 
-    this.we.toolbar.mode = 'simple'
+    this.toolbar.mode = 'simple'
   },
 }
 ```
@@ -160,19 +154,16 @@ import { useWangEditor } from 'wangeditor5-for-vue2'
 export default {
   data() {
     return {
-      we: null,
+      ...useWangEditor(),
     }
-  },
-  created() {
-    this.we = useWangEditor()
   },
   methods: {
     customClearContent() {
       // 如果使用了 v-bind 进行双向绑定，一定要注意此配置项一定要设置为 false
-      this.we.editable.extendCache = false
+      this.editable.extendCache = false
 
-      this.we.editable.defaultContent = null
-      this.we.reloadEditor()
+      this.editable.defaultContent = null
+      this.reloadEditor()
     },
   },
 }

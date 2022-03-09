@@ -20,36 +20,25 @@
   export default {
     data() {
       return {
-        we1: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
-        },
-        we2: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
-        },
+        we1: useWangEditor({
+          config: {
+            placeholder: 'WeToolbar + WeEditable 示例',
+            onCreated: (inst) => {
+              console.log(inst)
+              console.log(this.we2.editable.config.placeholder)
+            },
+          },
+        }),
+        we2: useWangEditor({
+          config: {
+            placeholder: 'WeEditor 示例',
+            onCreated: (inst) => {
+              console.log(inst)
+              console.log(this.we1.editable.config.placeholder)
+            },
+          },
+        }),
       }
-    },
-    created() {
-      this.we1 = useWangEditor({
-        config: {
-          placeholder: 'WeToolbar + WeEditable 示例',
-        },
-      })
-
-      this.we2 = useWangEditor({
-        config: {
-          placeholder: 'WeEditor 示例',
-        },
-      })
     },
   }
 </script>

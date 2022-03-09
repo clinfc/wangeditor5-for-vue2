@@ -11,8 +11,8 @@
           class="editor"
           toolbar-class="editor-toolbar"
           editable-class="editor-editable"
-          :toolbar-option="we.toolbar"
-          :editable-option="we.editable"
+          :toolbar-option="toolbar"
+          :editable-option="editable"
           :json.sync="data.json"
           :html.sync="data.html"
         />
@@ -38,15 +38,16 @@
   export default {
     components: { UPrism },
     data() {
-      return {
-        we: {
-          toolbar: null,
-          editable: null,
-          getToolbar: null,
-          getEditable: null,
-          clearContent: null,
-          reloadEditor: null,
+      const { toolbar, editable } = useWangEditor({
+        config: {
+          placeholder: 'v-bind:json.sync',
         },
+        delay: 1000,
+      })
+
+      return {
+        toolbar,
+        editable,
         article: getArticle(),
         data: {
           article: '',
@@ -62,14 +63,6 @@
           this.data.json = JSON.stringify(getArticleJson(nv))
         }
       },
-    },
-    created() {
-      this.we = useWangEditor({
-        config: {
-          placeholder: 'v-bind:json.sync',
-        },
-        delay: 1000,
-      })
     },
   }
 </script>
