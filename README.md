@@ -36,9 +36,13 @@ npm install @wangeditor/editor wangeditor5-for-vue2
 
   `defaultContent`/`defaultHtml` + `reloadEditor()` 可优雅的实现在不同文章间的来回切换
 
+- **Vetur**
+  提供 `Vetur` 语法提示和自动完成所需的配置文件
+
 ### 示例代码
 
 - [element-ui](./example/element_ui)
+- [typescript](./example/ts/)
 
 ### 兼容性
 

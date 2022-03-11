@@ -35,6 +35,10 @@ module.exports = {
                 text: 'element-ui',
                 link: 'https://github.com/clinfc/wangeditor5-for-vue2/tree/main/example/element_ui',
               },
+              {
+                text: 'typescript',
+                link: 'https://github.com/clinfc/wangeditor5-for-vue2/tree/main/example/ts',
+              },
             ],
           },
           {
@@ -48,7 +52,7 @@ module.exports = {
           { text: 'Github', link: 'https://github.com/clinfc/wangeditor5-for-vue2' },
         ],
         sidebar: {
-          '/guide/': ['', 'props', 'use-wang-editor', 'reloadbefore', 'v-model', 'relevance'],
+          '/guide/': ['', 'props', 'use-wang-editor', 'reloadbefore', 'v-model', 'relevance', 'vetur'],
         },
       },
     },
