@@ -282,13 +282,13 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
 
     this.$watch('option.config.readOnly', (nv) => {
       if (instance) {
-        nv ? instance.enable() : instance.disable()
+        nv ? instance.disable() : instance.enable()
       }
     })
 
     this.$watch('option.config.placeholder', (nv) => {
       const target = (this.$refs.elem as HTMLDivElement | undefined)?.querySelector('.w-e-text-placeholder')
-      if (target instanceof HTMLElement) target.innerText = nv ?? ''
+      if (target instanceof HTMLElement) target.innerHTML = nv ?? ''
     })
 
     this.$watch('option.config.scroll', (nv) => {
