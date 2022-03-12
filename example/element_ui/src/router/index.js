@@ -40,6 +40,11 @@ const routes = [
     name: 'reloadbefore',
     component: () => import(/* webpackChunkName: "reloadbefore" */ '../views/u-reloadbefore.vue'),
   },
+  {
+    path: '/dynamic-update',
+    name: 'DynamicUpdate',
+    component: () => import(/* webpackChunkName: "dynamic" */ '../views/u-dynamic-update.vue'),
+  },
 ]
 
 const router = new VueRouter({

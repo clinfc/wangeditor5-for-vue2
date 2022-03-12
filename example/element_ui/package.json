@@ -27,5 +27,9 @@
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
     "vue-template-compiler": "^2.6.14"
+  },
+  "vetur": {
+    "tags": "wangeditor5-for-vue2/vetur/tags.json",
+    "attributes": "wangeditor5-for-vue2/vetur/attributes.json"
   }
 }

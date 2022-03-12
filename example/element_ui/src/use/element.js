@@ -21,6 +21,9 @@ import {
   Tabs,
   TabPane,
   Drawer,
+  Checkbox,
+  Radio,
+  RadioGroup,
 } from 'element-ui'
 
 Vue.use(Dialog)
@@ -42,5 +45,8 @@ Vue.use(Main)
 Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Drawer)
+Vue.use(Checkbox)
+Vue.use(Radio)
+Vue.use(RadioGroup)
 
 Vue.prototype.$ELEMENT = { size: 'mini' }
