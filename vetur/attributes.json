@@ -1,0 +1,18 @@
+{
+  "we-toolbar/option": { "description": "菜单栏初始化配置" },
+  "we-toolbar/reloadbefore": { "description": "菜单栏重载前的回调函数" },
+  "we-editable/option": { "description": "编辑区初始化配置" },
+  "we-editable/reloadbefore": { "description": "编辑区重载前的回调函数" },
+  "we-editable/json": { "description": "编辑器内容，支持 .sync 修饰符 " },
+  "we-editable/html": { "description": "编辑器内容，支持 .sync 修饰符，优先级低于 json" },
+  "we-editor/toolbar-option": { "description": "菜单栏初始化配置" },
+  "we-editor/toolbar-reloadbefore": { "description": "菜单栏重载前的回调函数" },
+  "we-editor/toolbar-class": { "description": "菜单栏的 class attribute" },
+  "we-editor/toolbar-style": { "description": "菜单栏的 style attribute" },
+  "we-editor/editable-option": { "description": "编辑区初始化配置" },
+  "we-editor/editable-reloadbefore": { "description": "编辑区重载前的回调函数" },
+  "we-editor/editable-class": { "description": "编辑区的 class attribute" },
+  "we-editor/editable-style": { "description": "编辑区的 style attribute" },
+  "we-editor/json": { "description": "编辑器内容，支持 .sync 修饰符 " },
+  "we-editor/html": { "description": "编辑器内容，支持 .sync 修饰符，优先级低于 json" }
+}

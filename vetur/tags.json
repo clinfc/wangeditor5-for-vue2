@@ -1,0 +1,25 @@
+{
+  "we-toolbar": {
+    "description": "编辑器-菜单栏独立组件",
+    "attributes": ["option", "reloadbefore"]
+  },
+  "we-editable": {
+    "description": "编辑器-编辑区独立组件",
+    "attributes": ["option", "reloadbefore", "json", "html"]
+  },
+  "we-editor": {
+    "description": "编辑器完整组件",
+    "attributes": [
+      "toolbar-option",
+      "toolbar-reloadbefore",
+      "toolbar-class",
+      "toolbar-style",
+      "editable-option",
+      "editable-reloadbefore",
+      "editable-class",
+      "editable-style",
+      "json",
+      "html"
+    ]
+  }
+}
