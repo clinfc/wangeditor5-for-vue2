@@ -1,7 +1,8 @@
 import { createToolbar, IDomEditor, Toolbar } from '@wangeditor/editor'
-import Vue, { PropType } from 'vue'
+import Vue, { PluginObject, PropType } from 'vue'
+import { ExtendedVue } from 'vue/types/vue'
 import { injectToolbar, setTimer, TIMER, TOOLBAR_EDITABLE } from './core'
-import { WeToolbarOption } from './types'
+import { WeToolbarComponentProps, WeToolbarOption } from './types'
 
 export const WeToolbar = Vue.extend({
   name: 'WeToolbar',
@@ -62,9 +63,8 @@ export const WeToolbar = Vue.extend({
   render(h) {
     return h('div', { ref: 'elem' })
   },
-})
+}) as ExtendedVue<Vue, unknown, unknown, unknown, WeToolbarComponentProps> & PluginObject<never>
 
-// @ts-ignore
 WeToolbar.install = function (vue: typeof Vue) {
   vue.component('WeToolbar', WeToolbar)
 }

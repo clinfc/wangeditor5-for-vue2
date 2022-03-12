@@ -1,9 +1,10 @@
 import { WeEditable } from './editable'
-import Vue from 'vue'
+import Vue, { PluginObject } from 'vue'
 import { WeToolbar } from './toolbar'
-import { DELAY, WeEditableOption, WeEditorProps, WeToolbarOption } from './types'
+import { DELAY, WeEditableOption, WeEditorComponentProps, WeToolbarOption } from './types'
+import { ExtendedVue } from 'vue/types/vue'
 
-export const WeEditor = Vue.extend<{}, {}, {}, WeEditorProps>({
+export const WeEditor = Vue.extend<unknown, unknown, unknown, WeEditorComponentProps>({
   name: 'WeEditor',
   props: {
     toolbarOption: {
@@ -65,9 +66,8 @@ export const WeEditor = Vue.extend<{}, {}, {}, WeEditorProps>({
       }),
     ])
   },
-})
+}) as ExtendedVue<Vue, unknown, unknown, unknown, WeEditorComponentProps> & PluginObject<never>
 
-// @ts-ignore
 WeEditor.install = function (vue: typeof Vue) {
   vue.component('WeEditor', WeEditor)
 }

@@ -1,10 +1,11 @@
-import Vue from 'vue'
+import Vue, { PluginObject } from 'vue'
 import debounce from 'lodash.debounce'
 import { createEditor, IDomEditor, IEditorConfig } from '@wangeditor/editor'
 import { EDITABLE_TOOLBAR, injectEditor, setTimer } from './core'
 import { DELAY, WeEditableComponentComputed, WeEditableComponentProps, WeEditableOption } from './types'
+import { ExtendedVue } from 'vue/types/vue'
 
-export const WeEditable = Vue.extend<{}, {}, WeEditableComponentComputed, WeEditableComponentProps>({
+export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComputed, WeEditableComponentProps>({
   name: 'WeEditable',
   props: {
     option: {
@@ -298,9 +299,8 @@ export const WeEditable = Vue.extend<{}, {}, WeEditableComponentComputed, WeEdit
   render(h) {
     return h('div', { ref: 'elem' })
   },
-})
+}) as ExtendedVue<Vue, unknown, unknown, WeEditableComponentComputed, WeEditableComponentProps> & PluginObject<never>
 
-// @ts-ignore
 WeEditable.install = function (vue: typeof Vue) {
   vue.component('WeEditable', WeEditable)
 }
