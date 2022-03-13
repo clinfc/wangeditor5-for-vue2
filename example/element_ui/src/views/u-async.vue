@@ -4,7 +4,14 @@
       <el-button type="primary" @click="dialogVisible = true"> el-dialog </el-button>
       <el-button type="primary" @click="drawerVisible = true"> el-drawer </el-button>
     </el-button-group>
-    <el-dialog append-to-body title="In Dralog" :visible.sync="dialogVisible" width="800px">
+    <el-dialog
+      append-to-body
+      title="In Dralog"
+      :visible.sync="dialogVisible"
+      @open="dialogOpen"
+      @opened="dialogOpened"
+      width="800px"
+    >
       <we-editor
         class="editor"
         toolbar-class="editor-toolbar"
@@ -43,7 +50,19 @@
         }),
       }
     },
+    methods: {
+      dialogOpen() {
+        console.log('dialog @open sync：', this.dialog.getEditable())
+        this.dialog.getEditable(3000).then((inst) => {
+          console.log('dialog @open async：', inst)
+        })
+      },
+      dialogOpened() {
+        console.log('dialog @opened sync：', this.dialog.getEditable())
+        this.dialog.getEditable(3000).then((inst) => {
+          console.log('dialog @opened async：', inst)
+        })
+      },
+    },
   }
 </script>
-
-<style lang="scss"></style>
