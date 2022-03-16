@@ -2,7 +2,7 @@ import Vue, { PluginObject } from 'vue'
 import debounce from 'lodash.debounce'
 import { createEditor, IDomEditor, IEditorConfig } from '@wangeditor/editor'
 import { EDITABLE_TOOLBAR, injectEditor, setTimer } from './core'
-import { DELAY, WeEditableComponentComputed, WeEditableComponentProps, WeEditableOption } from './types'
+import { WeEditableComponentComputed, WeEditableComponentProps } from './types'
 import { ExtendedVue } from 'vue/types/vue'
 
 export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComputed, WeEditableComponentProps>({
@@ -10,15 +10,7 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
   props: {
     option: {
       type: Object,
-      default: () => {
-        return {
-          mode: 'default',
-          defaultContent: null,
-          delay: DELAY.UPDATE,
-          extendCache: true,
-          config: {},
-        } as Required<WeEditableOption>
-      },
+      required: true,
     },
     reloadbefore: {
       type: Function,
@@ -51,7 +43,7 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
      */
     const updateJson = (e: IDomEditor) => {
       // 异步执行时，编辑器可能已销毁重建
-      if (e != instance) return
+      if (!e || e != instance) return
       const jstr = e.isEmpty() ? '' : JSON.stringify(e.children)
       if (cache.json !== jstr) {
         cache.json = jstr
@@ -64,12 +56,19 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
      */
     const updateHtml = (e: IDomEditor) => {
       // 异步执行时，编辑器可能已销毁重建
-      if (e != instance) return
+      if (!e || e != instance) return
       const html = e.isEmpty() ? '' : e.getHtml()
       if (cache.html !== html) {
         cache.html = html
         this.$emit('update:html', html)
       }
+    }
+
+    /** 手动更新数据 */
+    const executeUpdate = (instance: IDomEditor) => {
+      // 初始化/clear函数/组件销毁 的使用频率没有数据更新的使用频率高，因此将 modeJson 从 updateJson 中剔除，置于 updateJson 执行前执行。
+      this.modelJson && updateJson(instance)
+      this.modelHtml && updateHtml(instance)
     }
 
     // 封装 change 事件，实现数据 v-model 和 v-model:html
@@ -79,8 +78,8 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
       changes.length = 0
 
       const { delay, config } = this.option
-      this.modelJson && changes.push(debounce(updateJson, delay))
-      this.modelHtml && changes.push(debounce(updateHtml, delay))
+      this.modelJson && changes.push(delay > 0 ? debounce(updateJson, delay) : updateJson)
+      this.modelHtml && changes.push(delay > 0 ? debounce(updateHtml, delay) : updateHtml)
       if (config && config.onChange) {
         changes.push(config.onChange)
       }
@@ -122,8 +121,7 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
 
       if (instance) {
         // 强制更新数据，避免数据丢失
-        this.modelJson && updateJson(instance) // 初始化/clear函数/组件销毁 的使用频率没有数据更新的使用频率高，因此将 modeJson 从 updateJson 中剔除，置于 updateJson 执行前执行。
-        this.modelHtml && updateHtml(instance) // 初始化/clear函数/组件销毁 的使用频率没有数据更新的使用频率高，因此将 modeHtml 从 updateHtml 中剔除，置于 updateHtml 执行前执行。
+        executeUpdate(instance)
 
         // 执行 reloadbefore 事件
         this.reloadbefore(instance)
@@ -188,8 +186,7 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
       }
 
       if (!instance.isEmpty()) {
-        this.modelJson && updateJson(instance)
-        this.modelHtml && updateHtml(instance)
+        executeUpdate(instance)
       }
 
       return instance
@@ -203,19 +200,17 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
       instance.clear()
 
       // 强制进行数据同步，避免延迟机制导致数据丢失
-      this.modelJson && updateJson(instance)
-      this.modelHtml && updateHtml(instance)
+      executeUpdate(instance)
     }
 
-    const reload = injectEditor(this.option, initialize, clearContent)
+    const reload = injectEditor(this.option, initialize, clearContent, () => executeUpdate(instance!))
 
     this.$on('hook:mounted', reload)
 
     this.$on('hook:beforeDestroy', () => {
       if (instance) {
         // 强制进行数据更新，避免延迟机制导致数据丢失
-        this.modelJson && updateJson(instance)
-        this.modelHtml && updateHtml(instance)
+        executeUpdate(instance)
         instance.blur()
         setTimeout(() => {
           instance?.destroy()

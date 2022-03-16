@@ -9,9 +9,7 @@ export const WeToolbar = Vue.extend({
   props: {
     option: {
       type: Object as PropType<Required<WeToolbarOption>>,
-      default() {
-        return { mode: 'default', config: {} } as Required<WeToolbarOption>
-      },
+      required: true
     },
     reloadbefore: {
       type: Function as PropType<(inst: Toolbar) => void>,

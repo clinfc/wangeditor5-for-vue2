@@ -9,9 +9,7 @@ export const WeEditor = Vue.extend<unknown, unknown, unknown, WeEditorComponentP
   props: {
     toolbarOption: {
       type: Object,
-      default() {
-        return { mode: 'default', config: {} } as Required<WeToolbarOption>
-      },
+      required: true,
     },
     toolbarClass: [String, Object, Array],
     toolbarStyle: [String, Object],
@@ -21,15 +19,7 @@ export const WeEditor = Vue.extend<unknown, unknown, unknown, WeEditorComponentP
     },
     editableOption: {
       type: Object,
-      default() {
-        return {
-          mode: 'default',
-          defaultContent: null,
-          delay: DELAY.UPDATE,
-          extendCache: true,
-          config: {},
-        } as Required<WeEditableOption>
-      },
+      required: true,
     },
     editableClass: [String, Object],
     editableStyle: [String, Object],

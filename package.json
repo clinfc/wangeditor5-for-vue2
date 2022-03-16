@@ -25,9 +25,9 @@
     "rich text"
   ],
   "scripts": {
-    "dev": "concurrently npm:dev:*",
-    "dev:build": "tsc -w",
-    "dev:copy": "nodemon node copy.js",
+    "dev": "tsc -w",
+    "copy": "nodemon node copy.js",
+    "local": "concurrently npm:dev npm:copy",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "build": "tsc"
