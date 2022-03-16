@@ -23,27 +23,35 @@ const routes = [
   {
     path: '/async',
     name: 'UseWithAsync',
-    component: () => import(/* webpackChunkName: "async" */ '../views/u-async.vue'),
+    component: () => import('../views/u-async.vue'),
   },
   {
     path: '/bindjson',
     name: 'v-bind:json.sync',
-    component: () => import(/* webpackChunkName: "bjson" */ '../views/u-bind-json.vue'),
+    component: () => import('../views/u-bind-json.vue'),
   },
   {
     path: '/bindhtml',
     name: 'v-bind:html.sync',
-    component: () => import(/* webpackChunkName: "bhtml" */ '../views/u-bind-html.vue'),
+    component: () => import('../views/u-bind-html.vue'),
   },
   {
     path: '/reloadbefore',
     name: 'reloadbefore',
-    component: () => import(/* webpackChunkName: "reloadbefore" */ '../views/u-reloadbefore.vue'),
+    component: () => import('../views/u-reloadbefore.vue'),
+  },
+  {
+    name: 'SubmitSync',
+    path: '/submit-sync',
+    component: () => import('../views/sync-content.vue'),
+    meta: {
+      title: '强制同步表单数据',
+    },
   },
   {
     path: '/dynamic-update',
     name: 'DynamicUpdate',
-    component: () => import(/* webpackChunkName: "dynamic" */ '../views/u-dynamic-update.vue'),
+    component: () => import('../views/u-dynamic-update.vue'),
   },
 ]
 
