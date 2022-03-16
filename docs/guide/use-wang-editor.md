@@ -29,6 +29,7 @@ declare function useWangEditor(
     (timeout: number): Promise<Toolbar>;
   }
   clearContent: () => void
+  syncContent: () => void
   reloadEditor: () => void
 }
 ```
@@ -178,6 +179,75 @@ export default {
 > **为什么不通过修改 v-bind:json.sync/v-bind:html.sync 来清空数据**：
 >
 > 不是每一个用户都对富文本数据格式了如指掌。
+
+### syncContent
+
+> `v0.0.6+` 新增
+
+由于组件内部对 `v-model` 的数据更新做了节流处理（节流时长由 `WeEditableOption.delay` 控制）。当 `delay` 的数值稍大，我们在输入内容后快速点击提交表单，那么此时 `v-model` 的数据将不是最新的，这将得不偿失。因此我们可以在表单提交前执行 `syncContent` 来解除 `WeEditableOption.delay` 的副作用，强制更新 `v-model` 数据，即可防止数据丢失。
+
+以 `element-ui` 为例，在调用 `ElForm.validate` 方法前执行 `syncContent` 方法，即可避免数据丢失。
+
+```vue
+<template>
+  <el-form ref="ruleForm" :model="formData" :rules="formRule">
+    <el-form-item label="文章" prop="json">
+      <we-editor
+        :toolbar-option="toolbar"
+        :editable-option="editable"
+        :json.sync="formData.json"
+        :html.sync="formData.html"
+      />
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="submit">提交表单</el-button>
+    </el-form-item>
+  </el-form>
+</template>
+
+<script>
+  import { useWangEditor } from 'wangeditor5-for-vue2'
+  import UPrism from '../components/u-prism.vue'
+
+  export default {
+    components: { UPrism },
+    data() {
+      const { editable, toolbar, syncContent } = useWangEditor({
+        delay: 5000, // 无操作 5s 后才会同步表单数据
+        config: {
+          placeholder: '表单提交前使用 syncContent API 强制同步数据，确保数据不被丢失',
+        },
+      })
+
+      return {
+        editable,
+        toolbar,
+        syncContent,
+        formData: {
+          json: '',
+          html: '',
+        },
+        formRule: {
+          json: [{ required: true, message: '内容不能为空', trigger: 'change' }],
+        },
+      }
+    },
+    methods: {
+      // 提交表单
+      submit() {
+        // 强制同步 v-model 数据
+        this.syncContent()
+
+        // 表单验证
+        this.$refs.ruleForm.validate((valid) => {
+          if (!valid) return
+          console.log({ ...this.formData })
+        })
+      },
+    },
+  }
+</script>
+```
 
 ### getToolbar
 
