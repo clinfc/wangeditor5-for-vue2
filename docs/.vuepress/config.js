@@ -34,11 +34,15 @@ module.exports = {
             items: [
               {
                 text: 'element-ui',
-                link: 'https://github.com/clinfc/wangeditor5-for-vue2/tree/main/example/element_ui',
+                link: 'https://github.com/clinfc/wangeditor5-for-vue2-example',
               },
               {
                 text: 'typescript',
                 link: 'https://github.com/clinfc/wangeditor5-for-vue2/tree/main/example/ts',
+              },
+              {
+                text: '在线预览',
+                link: 'https://clinfc.github.io/wangeditor5-for-vue2-example',
               },
             ],
           },

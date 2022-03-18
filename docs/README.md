@@ -18,6 +18,10 @@ features:
     details: 提供 Vetur 语法提示和自动完成所需的配置文件
 ---
 
+### 在线示例
+
+[https://clinfc.github.io/wangeditor5-for-vue2-example](https://clinfc.github.io/wangeditor5-for-vue2-example)
+
 ### 兼容性
 
 - `vue@^2`
