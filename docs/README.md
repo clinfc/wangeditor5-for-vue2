@@ -25,7 +25,7 @@ features:
 ### 兼容性
 
 - `vue@^2`
-- `@wangeditor/editor@^0.14.0`
+- `@wangeditor/editor@^5.0.0`
 
 ### 交流
 

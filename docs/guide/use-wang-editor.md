@@ -34,90 +34,6 @@ declare function useWangEditor(
 }
 ```
 
-## WeEditableOption
-
-```js
-/**
- * 编辑器配置项
- */
-interface WeEditableOption {
-  /** 编辑器模式 */
-  mode?: 'default' | 'simple'
-  /** 编辑器初始化的默认内容 */
-  defaultContent?: Descendant[] | string | null
-  /** 编辑器配置，具体配置以官方为准 */
-  config?: Partial<IEditorConfig>
-  /** v-bind:json.sync/v-bind:html.sync 数据同步的防抖时长，默认值：3000，单位：毫秒 */
-  delay?: number
-  /**
-   * 编辑器创建时默认内容的优先级排序，默认值：true。
-   * true： v-bind:json.sync > v-bind:html.sync > defaultContent > defaultHtml。
-   * false: defaultContent > defaultHtml >  v-bind:json.sync > v-bind:html.sync。
-   */
-  extendCache?: boolean
-}
-```
-
-### WeEditableOption.extendCache
-
-当 `v-bind:json.sync`/`v-bind:html.sync` 与 `WeEditableOption.defaultContent`/`WeEditableOption.defaultHtml` 同时使用的时候，我们可以使用 `WeEditableOption.extendCache` 配置项来控制重载后编辑器的默认内容。
-
-当 `WeEditableOption.extendCahce` 为 `true` 时，编辑器**创建**/**重载**时显示内容的优先级为：`v-bind:json.sync` > `v-bind:html.sync` > `WeEditableOption.defaultContent` > `WeEditableOption.defaultHtml`。
-
-当 `WeEditableOption.extendCache` 为 `false` 时，编辑器**创建**/**重载**时显示内容的优先级为：`WeEditableOption.defaultContent` > `WeEditableOption.defaultHtml` > `v-bind:json.sync` > `v-bind:html.sync`。
-
-> `false` 模式下可能会造成数据的丢失，因此在编辑器重载前一定要做好数据的保存工作，我们可以配合 `reloadbefore` 事件来进行数据的保存。
-
-### 编辑器默认内容
-
-`WeEditableOption.defaultContent`/`WeEditableOption.defaultHtml` 的变更默认情况下是不会触发编辑器的重载的。在编辑器已创建的情况下，如果需要将 `WeEditableOption.defaultContent`/`WeEditableOption.defaultHtml` 内容直接显示出来，我们需要通过 `reloadEditor` API 来强制重载编辑器。并且我们需要注意 `WeEditableOption.extendCache` 对编辑器创建时默认内容的影响。
-
-> `defaultContent` 和 `defaultHtml` 不建议同时使用。如果需要切换使用，可以一个赋值为 null 另一个赋值真正的值。如：你需要从 `defaultContent` 切换到 `defaultHtml`，可以先赋值 `WeEditableOption.defaultContent = null`，然后再赋值 `WeEditableOption.defaultHtml = '<h1>标题一</h1><p>段落</p>'` 即可。
-
-```js
-import { useWangEditor } from 'wangeditor5-for-vue2'
-export default {
-  data() {
-    return {
-      ...useWangEditor(),
-    }
-  },
-  mounted() {
-    setTimeout(() => {
-      // 当你进行了 v-bind:json.sync/v-bind:html.sync 绑定时，
-      // 如果你想在编辑器重载后将 defaultContent 显示为编辑器的默认内容，
-      // 那么你需要设置 extendCache 为 false，这会导致编辑器内容的丢失，
-      // 可以合理搭配 reloadbefore 事件进行处理
-      this.editable.extendCache = false
-
-      // 然后再修改配置
-      this.editable.defaultContent = [{ type: 'header1', children: [{ text: '标题一' }] }]
-
-      // 同时还支持字符串形式的 JSON
-      this.editable.defaultContent = '[{"type":"header1","children":[{"text":"标题一"}]}]'
-
-      // or：配置 HTML 字符串
-      this.editable.defaultHtml = '<h1>标题一</h1><p>段落</p>'
-
-      // 最后，你还需要强制重载编辑器
-      this.reloadEditor()
-    }, 5000)
-  },
-}
-```
-
-## WeToolbarOption
-
-```js
-/**
- * 菜单栏的配置项
- */
-interface WeToolbarOption {
-  mode?: 'default' | 'simple'
-  config?: Partial<IToolbarConfig>
-}
-```
-
 ## 动态修改配置
 
 修改 `editable` 或 `toolbar` 的属性即可。
@@ -141,9 +57,7 @@ export default {
 }
 ```
 
-## API
-
-### clearContent
+## API - clearContent
 
 不仅会清除编辑器内容，还会同步 `v-bind:json.sync`/`v-bind:html.sync` 数据
 
@@ -153,34 +67,7 @@ const { clearContent } = useWangEditor()
 clearContent()
 ```
 
-受 `@wangeditor/editor` 内部限制，`WeEditableOption.config.readOnly` 为 `true` 时，执行 `clearContent()` 是无法清除内容的。
-如果你仍希望进行编辑器内容清除，可以考虑使用 `reloadEditor()` 搭配 `WeEditableOption.defaultContent` 进行实现。
-
-```js
-import { useWangEditor } from 'wangeditor5-for-vue2'
-export default {
-  data() {
-    return {
-      ...useWangEditor(),
-    }
-  },
-  methods: {
-    customClearContent() {
-      // 如果使用了 v-bind 进行双向绑定，一定要注意此配置项一定要设置为 false
-      this.editable.extendCache = false
-
-      this.editable.defaultContent = null
-      this.reloadEditor()
-    },
-  },
-}
-```
-
-> **为什么不通过修改 v-bind:json.sync/v-bind:html.sync 来清空数据**：
->
-> 不是每一个用户都对富文本数据格式了如指掌。
-
-### syncContent
+## API - syncContent
 
 > `v0.0.6+` 新增
 
@@ -249,11 +136,11 @@ export default {
 </script>
 ```
 
-### getToolbar
+## API - getToolbar
 
 获取菜单栏实例
 
-#### 同步模式
+### 同步模式
 
 当我们不传入参数或传入的不是一个数字时，此时为同步模式。
 
@@ -268,11 +155,11 @@ if (toolbarInstance) {
 }
 ```
 
-#### 异步模式
-
-当我们传入一个数字时，传入的是异步超时时间。单位：毫秒。
+### 异步模式
 
 > `v0.0.4+` 新增
+
+当我们传入一个数字时，传入的是异步超时时间。单位：毫秒。
 
 ```ts
 const { getToolbar } = useWangEditor()
@@ -286,11 +173,11 @@ getToolbar(3000)
   })
 ```
 
-### getEditable
+## API - getEditable
 
 获取编辑器实例
 
-#### 同步模式
+### 同步模式
 
 当我们不传入参数或传入的不是一个数字时，此时为同步模式。
 
@@ -305,11 +192,11 @@ if (editableInstance) {
 }
 ```
 
-#### 异步模式
-
-当我们传入一个数字时，传入的是异步超时时间。单位：毫秒。
+### 异步模式
 
 > `v0.0.4+` 新增
+
+当我们传入一个数字时，传入的是异步超时时间。单位：毫秒。
 
 ```ts
 const { getEditable } = useWangEditor()
@@ -323,13 +210,20 @@ getEditable(3000)
   })
 ```
 
-### reloadEditor
+## API - reloadEditor
 
 重载编辑器（销毁并重新创建）。
 
 > 重载分为编辑器重载和菜单栏重载，编辑器重载会自动触发菜单栏重载，而菜单栏重载却不会触发编辑器重载。
 
-#### 会触发重载的配置项
+```js
+const { reloadEditor } = useWangEditor()
+
+// 强制重载编辑器
+reloadEditor()
+```
+
+## 会触发重载的配置项
 
 - 菜单栏
   - `WeToolbarOption` 的所有属性
@@ -343,10 +237,3 @@ getEditable(3000)
   - `WeEditableOption.config.MENU_CONF`
 
 > `WeEditableOption` 的其它配置项虽不会触发重载，但是支持动态配置
-
-```js
-const { reloadEditor } = useWangEditor()
-
-// 强制重载编辑器
-reloadEditor()
-```
