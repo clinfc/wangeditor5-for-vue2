@@ -1,6 +1,6 @@
 import Vue, { PluginObject } from 'vue'
 import debounce from 'lodash.debounce'
-import { createEditor, IDomEditor, IEditorConfig } from '@wangeditor/editor'
+import { createEditor, IDomEditor, IEditorConfig, SlateEditor, SlateTransforms } from '@wangeditor/editor'
 import { EDITABLE_TOOLBAR, injectEditor, setTimer } from './core'
 import { WeEditableComponentComputed, WeEditableComponentProps } from './types'
 import { ExtendedVue } from 'vue/types/vue'
@@ -197,7 +197,12 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
      */
     const clearContent = () => {
       if (!instance || instance.isEmpty()) return
+      const disable = instance.isDisabled()
+      instance.enable()
+
       instance.clear()
+
+      disable && instance.disable()
 
       // 强制进行数据同步，避免延迟机制导致数据丢失
       executeUpdate(instance)
@@ -219,6 +224,34 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
       }
     })
 
+    /**
+     * 设置 v-model 数据
+     * @param inst 编辑器实例
+     * @param insert 执行插入操作
+     */
+    function model(inst: IDomEditor, insert: Function) {
+      const focus = inst.isFocused()
+      const disable = inst.isDisabled()
+      const selection = JSON.stringify(inst.selection)
+
+      disable && inst.enable()
+      inst.clear()
+
+      insert()
+
+      if (disable) {
+        inst.disable()
+      } else if (!focus) {
+        inst.blur()
+      } else {
+        try {
+          inst.select(JSON.parse(selection)) // 恢复选区
+        } catch (e) {
+          inst.select(SlateEditor.start(inst, [])) // 选中开头
+        }
+      }
+    }
+
     // 监听 v-bind:json 变化
     this.$watch(
       'json',
@@ -230,10 +263,9 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
           return
         }
 
-        instance.clear()
         try {
           const json = JSON.parse(this.json)
-          instance.insertFragment(json)
+          model(instance, () => instance!.insertFragment(json))
         } catch (error) {}
       },
       { immediate: true }
@@ -251,8 +283,11 @@ export const WeEditable = Vue.extend<unknown, unknown, WeEditableComponentComput
           return
         }
 
-        instance.clear()
-        instance.dangerouslyInsertHtml(this.html)
+        model(instance, () => {
+          // @ts-ignore
+          SlateTransforms.setNodes(instance!, { type: 'paragraph' }, { mode: 'highest' })
+          instance!.dangerouslyInsertHtml(this.html)
+        })
       },
       { immediate: true }
     )

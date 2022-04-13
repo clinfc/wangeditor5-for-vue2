@@ -33,11 +33,11 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@wangeditor/editor": "^0.15.11",
+    "@wangeditor/editor": "^5.0.0",
     "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
-    "@wangeditor/editor": "^0.15.11",
+    "@wangeditor/editor": "^5.0.0",
     "vue": "^2.6.14"
   },
   "devDependencies": {
