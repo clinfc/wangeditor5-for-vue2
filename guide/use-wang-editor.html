@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>useWangEditor | wangeditor5-for-vue2</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="支持动态配置的 wangEditor5 for vue2 组件">
+    
+    <link rel="preload" href="/wangeditor5-for-vue2/assets/css/0.styles.0438a70c.css" as="style"><link rel="preload" href="/wangeditor5-for-vue2/assets/js/app.1a83852c.js" as="script"><link rel="preload" href="/wangeditor5-for-vue2/assets/js/2.703de744.js" as="script"><link rel="preload" href="/wangeditor5-for-vue2/assets/js/16.cdb6121f.js" as="script"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/10.dc90f4c2.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/11.d1523814.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/12.a06e9234.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/13.d124178e.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/14.1572a14e.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/15.6d2f4be0.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/17.c5a87caa.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/18.c95568fd.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/3.7350765d.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/4.b7d0708f.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/5.9e2f4ca7.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/6.c7b54f12.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/7.32b779b1.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/8.4a9a5678.js"><link rel="prefetch" href="/wangeditor5-for-vue2/assets/js/9.e1d07588.js">
+    <link rel="stylesheet" href="/wangeditor5-for-vue2/assets/css/0.styles.0438a70c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/wangeditor5-for-vue2/" class="home-link router-link-active"><!----> <span class="site-name">wangeditor5-for-vue2</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/wangeditor5-for-vue2/guide/" class="nav-link router-link-active">
+  快速开始
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="keywords" class="dropdown-title"><span class="title">keywords</span> <span class="arrow down"></span></button> <button type="button" aria-label="keywords" class="mobile-dropdown-title"><span class="title">keywords</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/#wetoolbar-weeditable" class="nav-link">
+  WeToolbar/WeEditable
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/#weeditor" class="nav-link">
+  WeEditor
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  useWangEditor
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-clearcontent" class="nav-link">
+  clearContent
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-synccontent" class="nav-link">
+  syncContent
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-gettoolbar" class="nav-link">
+  getToolbar
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-geteditable" class="nav-link">
+  getEditable
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-reloadeditor" class="nav-link">
+  reloadEditor
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/editable-option.html" class="nav-link">
+  WeEditableOption
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/toolbar-option.html" class="nav-link">
+  WeToolbarOption
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#会触发重载的配置项" class="nav-link">
+  会触发重载的配置项
+</a></li></ul></div></div><div class="nav-item"><a href="/wangeditor5-for-vue2/extension/" class="nav-link">
+  扩展
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="使用示例" class="dropdown-title"><span class="title">使用示例</span> <span class="arrow down"></span></button> <button type="button" aria-label="使用示例" class="mobile-dropdown-title"><span class="title">使用示例</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/clinfc/wangeditor5-for-vue2-example" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  element-ui
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/clinfc/wangeditor5-for-vue2/tree/main/example/ts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  typescript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://clinfc.github.io/wangeditor5-for-vue2-example" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  在线预览
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="友情链接" class="dropdown-title"><span class="title">友情链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="友情链接" class="mobile-dropdown-title"><span class="title">友情链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.wangeditor.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  wangEditor5
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://clinfc.github.io/wangeditor5-for-vue3" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  wangeditor5-for-vue3
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://cn.vuejs.org/v2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue2
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="https://github.com/clinfc/wangeditor5-for-vue2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/wangeditor5-for-vue2/guide/" class="nav-link router-link-active">
+  快速开始
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="keywords" class="dropdown-title"><span class="title">keywords</span> <span class="arrow down"></span></button> <button type="button" aria-label="keywords" class="mobile-dropdown-title"><span class="title">keywords</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/#wetoolbar-weeditable" class="nav-link">
+  WeToolbar/WeEditable
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/#weeditor" class="nav-link">
+  WeEditor
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  useWangEditor
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-clearcontent" class="nav-link">
+  clearContent
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-synccontent" class="nav-link">
+  syncContent
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-gettoolbar" class="nav-link">
+  getToolbar
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-geteditable" class="nav-link">
+  getEditable
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-reloadeditor" class="nav-link">
+  reloadEditor
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/editable-option.html" class="nav-link">
+  WeEditableOption
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/toolbar-option.html" class="nav-link">
+  WeToolbarOption
+</a></li><li class="dropdown-item"><!----> <a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#会触发重载的配置项" class="nav-link">
+  会触发重载的配置项
+</a></li></ul></div></div><div class="nav-item"><a href="/wangeditor5-for-vue2/extension/" class="nav-link">
+  扩展
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="使用示例" class="dropdown-title"><span class="title">使用示例</span> <span class="arrow down"></span></button> <button type="button" aria-label="使用示例" class="mobile-dropdown-title"><span class="title">使用示例</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/clinfc/wangeditor5-for-vue2-example" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  element-ui
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/clinfc/wangeditor5-for-vue2/tree/main/example/ts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  typescript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://clinfc.github.io/wangeditor5-for-vue2-example" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  在线预览
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="友情链接" class="dropdown-title"><span class="title">友情链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="友情链接" class="mobile-dropdown-title"><span class="title">友情链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.wangeditor.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  wangEditor5
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://clinfc.github.io/wangeditor5-for-vue3" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  wangeditor5-for-vue3
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://cn.vuejs.org/v2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue2
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="https://github.com/clinfc/wangeditor5-for-vue2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/wangeditor5-for-vue2/guide/" aria-current="page" class="sidebar-link">快速开始</a></li><li><a href="/wangeditor5-for-vue2/guide/props.html" class="sidebar-link">props</a></li><li><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html" aria-current="page" class="active sidebar-link">useWangEditor</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#usewangeditor-的类型" class="sidebar-link">useWangEditor 的类型</a></li><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#动态修改配置" class="sidebar-link">动态修改配置</a></li><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-clearcontent" class="sidebar-link">API - clearContent</a></li><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-synccontent" class="sidebar-link">API - syncContent</a></li><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-gettoolbar" class="sidebar-link">API - getToolbar</a></li><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-geteditable" class="sidebar-link">API - getEditable</a></li><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#api-reloadeditor" class="sidebar-link">API - reloadEditor</a></li><li class="sidebar-sub-header"><a href="/wangeditor5-for-vue2/guide/use-wang-editor.html#会触发重载的配置项" class="sidebar-link">会触发重载的配置项</a></li></ul></li><li><a href="/wangeditor5-for-vue2/guide/editable-option.html" class="sidebar-link">WeEditableOption</a></li><li><a href="/wangeditor5-for-vue2/guide/toolbar-option.html" class="sidebar-link">WeToolbarOption</a></li><li><a href="/wangeditor5-for-vue2/guide/reloadbefore.html" class="sidebar-link">reloadbefore</a></li><li><a href="/wangeditor5-for-vue2/guide/v-model.html" class="sidebar-link">双向绑定</a></li><li><a href="/wangeditor5-for-vue2/guide/relevance.html" class="sidebar-link">组件关系</a></li><li><a href="/wangeditor5-for-vue2/guide/vetur.html" class="sidebar-link">Vetur</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="usewangeditor"><a href="#usewangeditor" class="header-anchor">#</a> useWangEditor</h1> <p>经过 <code>useWangEditor</code> 处理后，返回的 <code>editable</code> 和 <code>toolbar</code> 分别对应<strong>编辑器</strong>和<strong>菜单栏</strong>的配置项，不过此时的配置项对象具备了响应式特性，我们可以直接修改 <code>editable</code>/<code>toolbar</code> 对应属性来<strong>更新</strong>或<strong>重载</strong>编辑器。</p> <p>如果传入的 <code>editableOption</code> 和 <code>toolbarOption</code> 是响应式数据，内部将自动解除与之前的关联，也就意味着经过 <code>useWangEditor</code> 处理后得到的 <code>editable</code> 和 <code>toolbar</code> 配置对象，即使内容发生变化也不会触发之前的依赖更新！！！</p> <h2 id="usewangeditor-的类型"><a href="#usewangeditor-的类型" class="header-anchor">#</a> useWangEditor 的类型</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * vue hook，用于实现编辑器配置项的动态绑定
+ * @param {Object} editableOption 编辑器主体部分的配置
+ * @param {Object} toolbarOption 菜单栏配置
+ * @param {Number} reloadDelay 防抖时长，用于重载的延迟控制，默认值：500，单位：毫秒
+ */</span>
+declare <span class="token keyword">function</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span>
+  <span class="token parameter"><span class="token literal-property property">editableOption</span><span class="token operator">:</span> WeEditableOption <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">toolbarOption</span><span class="token operator">:</span> WeToolbarOption <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">reloadDelay</span><span class="token operator">:</span> number</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">editable</span><span class="token operator">:</span> Required<span class="token operator">&lt;</span>WeEditableOption<span class="token operator">&gt;</span>
+  <span class="token literal-property property">toolbar</span><span class="token operator">:</span> Required<span class="token operator">&lt;</span>WeToolbarOption<span class="token operator">&gt;</span>
+  <span class="token literal-property property">getEditable</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> IDomEditor <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span>timeout<span class="token operator">:</span> number<span class="token punctuation">)</span><span class="token operator">:</span> Promise<span class="token operator">&lt;</span>IDomEditor<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token literal-property property">getToolbar</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Toolbar <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span>timeout<span class="token operator">:</span> number<span class="token punctuation">)</span><span class="token operator">:</span> Promise<span class="token operator">&lt;</span>Toolbar<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function-variable function">clearContent</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span>
+  <span class="token function-variable function">syncContent</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span>
+  <span class="token function-variable function">reloadEditor</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="动态修改配置"><a href="#动态修改配置" class="header-anchor">#</a> 动态修改配置</h2> <p>修改 <code>editable</code> 或 <code>toolbar</code> 的属性即可。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useWangEditor <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'wangeditor5-for-vue2'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span><span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>editable<span class="token punctuation">.</span>config<span class="token punctuation">.</span>placeholder <span class="token operator">=</span> <span class="token string">'新的 placeholder'</span>
+
+    <span class="token comment">// 切换为只读模式</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>editable<span class="token punctuation">.</span>config<span class="token punctuation">.</span>readOnly <span class="token operator">=</span> <span class="token boolean">true</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>toolbar<span class="token punctuation">.</span>mode <span class="token operator">=</span> <span class="token string">'simple'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="api-clearcontent"><a href="#api-clearcontent" class="header-anchor">#</a> API - clearContent</h2> <p>不仅会清除编辑器内容，还会同步 <code>v-bind:json.sync</code>/<code>v-bind:html.sync</code> 数据</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> clearContent <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">clearContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="api-synccontent"><a href="#api-synccontent" class="header-anchor">#</a> API - syncContent</h2> <blockquote><p><code>v0.0.6+</code> 新增</p></blockquote> <p>由于组件内部对 <code>v-model</code> 的数据更新做了防抖处理（防抖时长由 <code>WeEditableOption.delay</code> 控制）。当 <code>delay</code> 的数值稍大，我们在输入内容后快速点击提交表单，那么此时 <code>v-model</code> 的数据将不是最新的，这将得不偿失。因此我们可以在表单提交前执行 <code>syncContent</code> 来解除 <code>WeEditableOption.delay</code> 的副作用，强制更新 <code>v-model</code> 数据，即可防止数据丢失。</p> <p>以 <code>element-ui</code> 为例，在调用 <code>ElForm.validate</code> 方法前执行 <code>syncContent</code> 方法，即可避免数据丢失。</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-form</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ruleForm<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>formData<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:rules</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>formRule<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-form-item</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>文章<span class="token punctuation">&quot;</span></span> <span class="token attr-name">prop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>json<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>we-editor</span>
+        <span class="token attr-name">:toolbar-option</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>toolbar<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:editable-option</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>editable<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:json.sync</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>formData.json<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:html.sync</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>formData.html<span class="token punctuation">&quot;</span></span>
+      <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-form-item</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-form-item</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>primary<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>提交表单<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-form-item</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">import</span> <span class="token punctuation">{</span> useWangEditor <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'wangeditor5-for-vue2'</span>
+  <span class="token keyword">import</span> UPrism <span class="token keyword">from</span> <span class="token string">'../components/u-prism.vue'</span>
+
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">{</span> UPrism <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> editable<span class="token punctuation">,</span> toolbar<span class="token punctuation">,</span> syncContent <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">delay</span><span class="token operator">:</span> <span class="token number">5000</span><span class="token punctuation">,</span> <span class="token comment">// 无操作 5s 后才会同步表单数据</span>
+        <span class="token literal-property property">config</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">placeholder</span><span class="token operator">:</span> <span class="token string">'表单提交前使用 syncContent API 强制同步数据，确保数据不被丢失'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        editable<span class="token punctuation">,</span>
+        toolbar<span class="token punctuation">,</span>
+        syncContent<span class="token punctuation">,</span>
+        <span class="token literal-property property">formData</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">json</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">html</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">formRule</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">json</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'内容不能为空'</span><span class="token punctuation">,</span> <span class="token literal-property property">trigger</span><span class="token operator">:</span> <span class="token string">'change'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 提交表单</span>
+      <span class="token function">submit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 强制同步 v-model 数据</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">syncContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment">// 表单验证</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>ruleForm<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">valid</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>valid<span class="token punctuation">)</span> <span class="token keyword">return</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>formData <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="api-gettoolbar"><a href="#api-gettoolbar" class="header-anchor">#</a> API - getToolbar</h2> <p>获取菜单栏实例</p> <h3 id="同步模式"><a href="#同步模式" class="header-anchor">#</a> 同步模式</h3> <p>当我们不传入参数或传入的不是一个数字时，此时为同步模式。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> getToolbar <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> toolbarInstance<span class="token operator">:</span> Toolbar <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token operator">=</span> <span class="token function">getToolbar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>toolbarInstance<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// do somthing</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// do somthing</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="异步模式"><a href="#异步模式" class="header-anchor">#</a> 异步模式</h3> <blockquote><p><code>v0.0.4+</code> 新增</p></blockquote> <p>当我们传入一个数字时，传入的是异步超时时间。单位：毫秒。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> getToolbar <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">getToolbar</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>inst<span class="token operator">:</span> Toolbar<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do somthing</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token operator">:</span> Error<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do somthing</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="api-geteditable"><a href="#api-geteditable" class="header-anchor">#</a> API - getEditable</h2> <p>获取编辑器实例</p> <h3 id="同步模式-2"><a href="#同步模式-2" class="header-anchor">#</a> 同步模式</h3> <p>当我们不传入参数或传入的不是一个数字时，此时为同步模式。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> getEditable <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> editableInstance<span class="token operator">:</span> IDomEditor <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token operator">=</span> <span class="token function">getEditable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>editableInstance<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>editableInstance<span class="token punctuation">.</span>children<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'编辑器未实例化'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="异步模式-2"><a href="#异步模式-2" class="header-anchor">#</a> 异步模式</h3> <blockquote><p><code>v0.0.4+</code> 新增</p></blockquote> <p>当我们传入一个数字时，传入的是异步超时时间。单位：毫秒。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> getEditable <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">getEditable</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>inst<span class="token operator">:</span> IDomEditor<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do somthing</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token operator">:</span> Error<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do somthing</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="api-reloadeditor"><a href="#api-reloadeditor" class="header-anchor">#</a> API - reloadEditor</h2> <p>重载编辑器（销毁并重新创建）。</p> <blockquote><p>重载分为编辑器重载和菜单栏重载，编辑器重载会自动触发菜单栏重载，而菜单栏重载却不会触发编辑器重载。</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> reloadEditor <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useWangEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 强制重载编辑器</span>
+<span class="token function">reloadEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="会触发重载的配置项"><a href="#会触发重载的配置项" class="header-anchor">#</a> 会触发重载的配置项</h2> <ul><li>菜单栏
+<ul><li><code>WeToolbarOption</code> 的所有属性</li></ul></li> <li>编辑器
+<ul><li><code>WeEditableOption.mode</code></li> <li><code>WeEditableOption.config.customPaste</code></li> <li><code>WeEditableOption.config.decorate</code></li> <li><code>WeEditableOption.config.hoverbarKeys</code></li> <li><code>WeEditableOption.config.maxLength</code></li> <li><code>WeEditableOption.config.EXTEND_CONF</code></li> <li><code>WeEditableOption.config.MENU_CONF</code></li></ul></li></ul> <blockquote><p><code>WeEditableOption</code> 的其它配置项虽不会触发重载，但是支持动态配置</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/wangeditor5-for-vue2/guide/props.html" class="prev">
+        props
+      </a></span> <span class="next"><a href="/wangeditor5-for-vue2/guide/editable-option.html">
+        WeEditableOption
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/wangeditor5-for-vue2/assets/js/app.1a83852c.js" defer></script><script src="/wangeditor5-for-vue2/assets/js/2.703de744.js" defer></script><script src="/wangeditor5-for-vue2/assets/js/16.cdb6121f.js" defer></script>
+  </body>
+</html>
