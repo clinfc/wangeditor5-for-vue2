@@ -29,6 +29,7 @@ module.exports = {
               { text: '会触发重载的配置项', link: '/guide/use-wang-editor.md#会触发重载的配置项' },
             ],
           },
+          { text: '扩展', link: '/extension/' },
           {
             text: '使用示例',
             items: [
@@ -68,6 +69,7 @@ module.exports = {
             'relevance',
             'vetur',
           ],
+          '/extension/': ['', 'toggle-mode'],
         },
       },
     },

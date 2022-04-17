@@ -43,6 +43,10 @@ npm install @wangeditor/editor wangeditor5-for-vue2
 - **Vetur**
   提供 `Vetur` 语法提示和自动完成所需的配置文件
 
+- **toggle mode**
+
+  内置编辑器模式切换菜单，通过简单的配置后，客户便可以在使用时切换喜欢的模式了。
+
 ### 示例代码
 
 - [element-ui](./example/element_ui)

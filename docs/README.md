@@ -16,6 +16,8 @@ features:
     details: defaultContent/defaultHtml + reloadEditor() 可优雅的实现在不同文章间的来回切换
   - title: Vetur
     details: 提供 Vetur 语法提示和自动完成所需的配置文件
+  - title: 内置扩展
+    details: 内置扩展功能，提升交互体验
 ---
 
 ### 在线示例
